@@ -3,11 +3,16 @@ services:
   rails:
     build:
       context: rails
+    volumes:
+      - ./rails:/app
     ports:
       - "3000:3000"
     depends_on:
       - db
       - redis
+    environment:
+      TZ: Asia/Tokyo
+      RAILS_ENV: development
   db:
     image: mysql:8
     volumes:
@@ -20,3 +25,8 @@ services:
     image: redis:7
     ports:
       - "6379:6379"
+  maildev:
+    image: maildev/maildev
+    ports:
+      - "1080:1080"
+      - "1025:1025"
