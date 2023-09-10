@@ -4,10 +4,7 @@ services:
     build:
       context: rails
     ports:
-      - 8080:3000
-    entrypoint:
-      - sleep
-      - infinity
+      - "3000:3000"
     depends_on:
       - db
       - redis
@@ -17,7 +14,9 @@ services:
       - ./db/my.conf:/etc/my.cnf
     environment:
       MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
   redis:
     image: redis:7
-
-
+    ports:
+      - "6379:6379"
