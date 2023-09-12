@@ -2,6 +2,24 @@
 
 ## Commands
 
+### Run docker-compose
+
+```bash
+docker-compose build
+```
+
+```bash
+docker-compose up -d
+```
+
+```bash
+docker-compose start
+```
+
+```bash
+docker-compose stop
+```
+
 ### Enter rails shell
 
 ```bash
@@ -20,13 +38,20 @@ docker-compose exec db /bin/bash
 docker-compose exec redis /bin/bash
 ```
 
-### Login mysql root
+### Login mysql
 
 Container:
-
 - rails
-- db
 
 ```bash
 mysql -h db -u root -ppassword
+```
+
+### Login redis
+
+Container:
+- rails
+
+```bash
+redis-cli -h redis
 ```
